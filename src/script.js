@@ -29,8 +29,7 @@ function callbackSubjects(subject) {
     return (subject[0].toUpperCase() + subject.slice(1).toLowerCase()).split('_').join(' ');
 }
 function getSubjects(student = students[0]) {
-    const studentValues = Object.values(student);
-    const studentSubjects = Object.keys(studentValues[2]);
+    const studentSubjects = Object.keys(student.subjects);
     const newArrayOfSubjects = studentSubjects.map(callbackSubjects);
     return newArrayOfSubjects;
 }
@@ -51,13 +50,9 @@ console.log(`Student ${students[0].name} average mark:`, getAverageMark());
 
 //Створіть функцію яка повертає інформацію загального виду по переданому студенту. Повинна бути виведена інформація: курс, ім'я, середня оцінка.
 function getStudentInfo(student = students[0]) {
-    const arrayStudent = Object.entries(student);
-    const studentArray = arrayStudent[0].concat(arrayStudent[1]);
-    const studentName = studentArray[1];
-    const studentCourse = studentArray[3];
     return student = {
-        course: studentCourse,
-        name: studentName,
+        course: student.course,
+        name: student.name,
         averageMark: getAverageMark(student)
     }
 }
